@@ -1,0 +1,59 @@
+0 - Eliminar o ver directorios ( ios y android )
+
+0 - exp detach
+
+En directorio Root:
+
+1 - npm install react-native-iap --save
+2 - react-native link react-native-iap
+
+3 - npm install --save react-native-google-analytics-bridge
+4 - react-native link react-native-google-analytics-bridge
+
+En iOS: 
+
+5 - pod install
+
+6 - Especificar Signing / Team ( en Xcode )
+
+7 - Activar In-App-Purchase ( Capabilities ) 
+
+8 - Activar Push Notifications ( Capabilities ) 
+
+
+
+
+----------------------
+----------------------
+
+[20:05:15] Retreiving Android keystore for @manulinx/iebapp
+[20:05:16] Writing keystore to /Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/iebapp.jks...
+[20:05:16] Done writing keystore to disk.
+[20:05:16] Save these important values as well:
+
+  Keystore password: 463a7b9bfe801825c6fbc05e5d28e3a5
+  Key alias:         QG1hbnVsaW54L2llYmFwcA==
+  Key password:      93b74152261908b128ccdc562f05733b
+  
+https://play.google.com/apps/testing/com.invertirenbolsa.iebapp
+
+
+
+
+
+Hacerse rico rápidamente operando en Bolsa es algo extremadamente difícil, pero obtener una muy buena rentabilidad a largo plazo invirtiendo de forma prudente es algo que está al alcance de todo el mundo, sin necesidad de tener conocimientos previos ni una inteligencia superior a la media. Cualquier persona, cualquiera, puede aprender a invertir en Bolsa y obtener muy buenos resultados, a largo plazo, si actúa de forma prudente y sensata.
+
+InvertirenBolsa.info está pensada para todo aquel que le interese el mundo de la Bolsa. Desde el que quiere aprender a invertir empezando desde cero hasta que el que quiere adquirir conocimientos más avanzados. 
+
+La aplicación de InvertirEnBolsa.info permite acceder a algunas secciones de la web como:
+- el "Foro de inversiones": dónde puede plantear cualquier duda que tenga o expresar sus opiniones sobre cualquier tipo de inversión y la gestión del dinero en general. Existen subforos de gestión del patrimonio, Bolsa, renta fija, inmuebles, arte y bienes tangibles, finanzas personales, ahorro y economía doméstica, fiscalidad, etc.
+- la "Base de datos de empresas": dónde podrá visualizar información fundamental de las empresas.
+- las "Noticias": dónde podrá consultar las noticias oficiales de las empresas
+
+
+
+-- PUSH NOTIFICACIONS
+p12 password: yjiztuwbto
+
+One Signal
+Your App ID: 8432ebae-b0c5-4b7a-82b3-67923e4ae7de

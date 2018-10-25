@@ -1,0 +1,13 @@
+#Wed Oct 24 19:31:49 CEST 2018
+path.3=classes4.dex
+path.2=classes3.dex
+path.1=classes2.dex
+path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.3=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/prodMinSdkProdKernel/release/0
+base.2=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/prodMinSdkProdKernel/release/0
+base.1=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/prodMinSdkProdKernel/release/0
+base.0=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/prodMinSdkProdKernel/release/0

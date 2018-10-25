@@ -1,0 +1,7 @@
+#Wed Oct 24 19:23:27 CEST 2018
+base.0=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/12
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/11

@@ -1,0 +1,3 @@
+# Referenced at /Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/manifests/full/devMinSdkDevKernel/debug/AndroidManifest.xml:89
+-keep class host.exp.exponent.MainApplication { <init>(...); }
+
