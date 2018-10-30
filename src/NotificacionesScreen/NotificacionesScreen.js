@@ -4,7 +4,10 @@ import { View, ScrollView, Image, Text, ActivityIndicator, Platform } from "reac
 import { Button, Icon } from "native-base";
 import { List, ListItem} from "react-native-elements";
 import stylesGen from '../Style/styleApp.js';
-import {activarNotificaciones, inicializaNotificaciones} from './ApiNotificaciones.js';
+import {
+  activarNotificaciones,
+  activarNotificacionesMisPosts,
+  inicializaNotificaciones} from './ApiNotificaciones.js';
 import OneSignal from 'react-native-onesignal';
 import DropdownAlert from 'react-native-dropdownalert';
 import Utils from '../Utils/Utils.js';
@@ -33,6 +36,7 @@ export default class NotificacionesScreen extends React.Component {
       usuario: '',
       password: '',
       blnRecibirNotificaciones: false,
+      blnRecibirNotificacionesMisPosts: false,
       loading: true
     };
 
@@ -59,7 +63,10 @@ export default class NotificacionesScreen extends React.Component {
           )
           .then(blnResult => {
             if (blnResult) {
-                this.setState({blnRecibirNotificaciones: blnResult});
+                this.setState({
+                  blnRecibirNotificaciones: blnResult.notificationes_activa,
+                  blnRecibirNotificacionesMisPosts: blnResult.notificationes_mis_posts
+                });
             }
           });
       });
@@ -118,6 +125,24 @@ export default class NotificacionesScreen extends React.Component {
     }
   }
 
+
+  recibirNotificacionesMisPosts(blnValue) {
+    if  ((this.state.usuario != null) && (this.state.password != null)) {
+      OneSignal.getPermissionSubscriptionState((status) => {
+          //console.log("status:",status)
+          this.setState({ userIdToken: status.userId });
+          activarNotificacionesMisPosts(
+            this.state.usuario, this.state.password, blnValue, status.userId, Platform.OS
+          )
+          .then(blnResult => {
+            if (blnResult) {
+                this.setState({blnRecibirNotificacionesMisPosts: blnValue});
+            }
+          });
+      });
+    }
+  }
+
   render() {
     let { usuario, password, errors = {} } = this.state;
 
@@ -149,8 +174,15 @@ export default class NotificacionesScreen extends React.Component {
             switchButton
             hideChevron
             switched={this.state.blnRecibirNotificaciones}
-            title="Recibir Notificaciones"
+            title="Notificaciones hilos favoritos"
             onSwitch={(value) => { this.recibirNotificaciones(value) }}
+          />
+          <ListItem
+            switchButton
+            hideChevron
+            switched={this.state.blnRecibirNotificacionesMisPosts}
+            title="Notificaciones en mis hilos"
+            onSwitch={(value) => { this.recibirNotificacionesMisPosts(value) }}
           />
         </List>
 

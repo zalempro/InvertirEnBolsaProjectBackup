@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StatusBar, FlatList, View, ActivityIndicator, Platform } from "react-native";
+import { StatusBar, FlatList, View, ActivityIndicator, Platform, AppState } from "react-native";
 import { Container, Header, Title, Left, Right, Icon, Button, Body, Content,Text, Card, CardItem} from "native-base";
 
 import { getUltPostsForo }      from '../ForumScreen/ApiForo.js';
@@ -42,7 +42,8 @@ export default class HomeScreen extends React.Component {
       paginasTot: 0,
       paginaActual: 1,
       usuario: null,
-      searchURL: ''
+      searchURL: '',
+      appState: AppState.currentState
     };
 
     this.util = new Utils();
@@ -51,11 +52,12 @@ export default class HomeScreen extends React.Component {
     this.analytics.trackScreenView("UltimosPosts");
 
     this.fetchTemasForo = this.fetchTemasForo.bind(this);
-
   }
 
   // Called after a component is mounted
   async componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+
     this.isCancelled = false;
     !this.isCancelled && this.setState({ loading: true });
 
@@ -89,7 +91,16 @@ export default class HomeScreen extends React.Component {
 
   componentWillUnmount() {
       this.isCancelled = true;
+      AppState.removeEventListener('change', this._handleAppStateChange);
   }
+
+  _handleAppStateChange = (nextAppState) => {
+    if (this.state.appState.match(/background/) && nextAppState === 'active') {
+      this.handleRefresh();
+    }
+    this.setState({appState: nextAppState});
+  }
+
 
   fetchTemasForo(blnReset) {
     if (!this.state.loading) {
@@ -225,7 +236,7 @@ export default class HomeScreen extends React.Component {
 
             <FlatList
               removeClippedSubviews
-              //disableVirtualization
+              disableVirtualization
               data={this.state.temasForo.post}
               renderItem={({ item, index, navigation }) => <TemaForo
                 showStars={false}
@@ -239,7 +250,7 @@ export default class HomeScreen extends React.Component {
               refreshing={this.state.refreshing}
               onRefresh={this.handleRefresh.bind(this)}
               onEndReached={this.handleLoadMore.bind(this)}
-              initialNumToRender={8}
+              initialNumToRender={10}
               maxToRenderPerBatch={5}
               onEndReachedThreshold={0.5}
               extraData={this.state.subs_active}

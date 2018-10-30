@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Linking, TouchableHighlight } from 'react-native';
-import { Text, Button, Card, Divider } from 'react-native-elements';
+import { View, Text, Linking, TouchableHighlight } from 'react-native';
+import { Button, Card, Divider } from 'react-native-elements';
 import moment from 'moment';
 
 import StarRatingBar from 'react-native-star-rating-view/StarRatingBar';
@@ -8,7 +8,7 @@ import Utils from '../Utils/Utils.js';
 
 import stylesGen from '../Style/styleApp.js';
 
-export default class TemaForo extends React.Component {
+export default class TemaForo extends React.PureComponent {
 
   constructor(props) {
       super(props);

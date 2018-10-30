@@ -1,4 +1,4 @@
-#Wed Oct 24 19:23:26 CEST 2018
-base.0=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/4
+#Fri Oct 26 20:22:30 CEST 2018
+base.0=/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/22
 path.0=classes.dex
 renamed.0=classes.dex

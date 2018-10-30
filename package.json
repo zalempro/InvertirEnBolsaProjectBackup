@@ -1,6 +1,6 @@
 {
   "name": "comunidad_invertir_en_bolsa",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "private": true,
   "devDependencies": {
     "react-native-scripts": "1.14.0",

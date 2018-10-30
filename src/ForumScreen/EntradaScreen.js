@@ -230,7 +230,7 @@ export default class EntradaScreen extends React.Component {
       return(
         <ListItem onPress={() => this.recibirNotificaciones()}>
           <CheckBox style={styles2.ListCheckBox} checked={this.state.blnRecibirNotif} color="green" onPress={() => this.recibirNotificaciones()}/>
-          <Text style={styles2.CheckBoxText}>Recibir notificaciones de este hilo</Text>
+          <Text style={styles2.CheckBoxText}>Añadir hilo a favoritos</Text>
         </ListItem>
       );
     } else {

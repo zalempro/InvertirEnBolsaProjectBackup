@@ -28,7 +28,7 @@ export default class SideBar extends React.Component {
 
   render() {
 
-    if(process.env.NODE_ENV === 'development') {
+    if ((process.env.NODE_ENV === 'development') || (Platform.OS==="ios")) {
       var routes = [
         ["Home","Posts nuevos"],
         ["Noticias","Noticias"],
