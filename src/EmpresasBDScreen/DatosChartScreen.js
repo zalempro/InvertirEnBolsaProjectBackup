@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, Dimensions } from 'react-native';
 import { Text, Button, Card, Divider, Slider } from 'react-native-elements';
-import { Icon, Container } from "native-base";
+import { Icon, Container, Form, Item, Picker } from "native-base";
 //import {OptimizedFlatList} from 'react-native-optimized-flatlist';
 
 import Utils from '../Utils/Utils.js';
@@ -186,6 +186,24 @@ export default class DatosChartScreen extends React.PureComponent {
     }
   }
 
+  renderPickerGraficos = () => {
+    //this.datos[this.state.value][0].title
+    console.log("datos: ",this.datos)
+
+    if (this.datos != undefined) {
+      let arrGraficos = this.datos;
+      return (
+
+        //arrGraficos.map(item => <Picker.Item key={item[0].value} label={this.util.decodeData(item[0].title)} value={item.value} />)
+        arrGraficos.map((item, index) => <Picker.Item key={index} label={item[0].title} value={index} />)
+      )
+    }
+  }
+
+  onValueChangeGrafico(value) {
+    this.setState({ value: value });
+  }
+
   render() {
     if (this.state.usuario != null) {
       return (
@@ -199,33 +217,55 @@ export default class DatosChartScreen extends React.PureComponent {
                 image={this.imgBloque}
                 imageStyle={{height: 120}}
                 >
-                <Text style={stylesGen.titleGraf}>{this.datos[this.state.value][0].title}</Text>
-                {this.renderChart()}
-                <Slider
-                  key="idSlider"
-                  maximumValue={this.datos.length-1}
-                  step={1}
-                  value={this.state.value}
-                  onValueChange={(value) => {
-                    if (value != this.state.value) {
-                      this.ads.showIntersticialAd();
-                      this.setState({value})
-                    }
-                  }} />
-                  <View style={styles.containerButtons}>
-                    <Button
-                    leftIcon={{name: 'chevron-left'}}
-                    title=''
-                    buttonStyle={styles.styleButtons}
-                    onPress={() => this.navegaLess()}
-                    />
-                    <Button
-                    rightIcon={{name: 'chevron-right'}}
-                    title=''
-                    buttonStyle={styles.styleButtons}
-                    onPress={() => this.navegaMore()}
-                    />
+                <Form style={styles.ViewView}>
+                  <View style={{height: 50}}>
+                    <Item picker style={styles.ItemPicker}>
+                      <Picker
+                        mode="dropdown"
+                        headerBackButtonText="Atras"
+                        iosHeader="Tipos"
+                        headerStyle={styles.headePicker}
+                        iosIcon={<Icon name="ios-arrow-down-outline" />}
+                        style={styles.PickerObj}
+                        placeholder="Selecciona el Gráfico"
+                        placeholderStyle={{ color: "#999999" }}
+                        textStyle={styles.TextSelectedPicker}
+                        placeholderIconColor="#007aff"
+                        selectedValue={this.state.value}
+                        onValueChange={this.onValueChangeGrafico.bind(this)}
+                      >
+                      {this.renderPickerGraficos()}
+                      </Picker>
+                    </Item>
                   </View>
+
+                  {this.renderChart()}
+                  <Slider
+                    key="idSlider"
+                    maximumValue={this.datos.length-1}
+                    step={1}
+                    value={this.state.value}
+                    onValueChange={(value) => {
+                      if (value != this.state.value) {
+                        this.ads.showIntersticialAd();
+                        this.setState({value})
+                      }
+                    }} />
+                    <View style={styles.containerButtons}>
+                      <Button
+                      leftIcon={{name: 'chevron-left'}}
+                      title=''
+                      buttonStyle={styles.styleButtons}
+                      onPress={() => this.navegaLess()}
+                      />
+                      <Button
+                      rightIcon={{name: 'chevron-right'}}
+                      title=''
+                      buttonStyle={styles.styleButtons}
+                      onPress={() => this.navegaMore()}
+                      />
+                    </View>
+                  </Form>
             </Card>
         </ScrollView>
         <AdsComponent
@@ -264,8 +304,38 @@ const styles = {
     borderColor: "transparent",
     borderWidth: 0,
     borderRadius: 5,
-    marginTop: 25,
-    marginBottom: 25
+    marginTop: 10,
+    marginBottom: 20
+  },
+
+  ViewView: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  ItemPicker : {
+    backgroundColor: "white",
+    paddingLeft: 5,
+    paddingRight: 5,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  textPicker: {
+    padding: 0,
+    //textAlign : 'Left'
+  },
+  PickerObj: {
+    padding: 0,
+    alignItems: 'flex-end',
+    //textAlign : 'Right',
+  },
+  headePicker: {
+    height: 55
+  },
+  TextSelectedPicker: {
+    marginBottom:5
   }
+
+
 
 }
