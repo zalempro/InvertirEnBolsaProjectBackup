@@ -174,6 +174,18 @@ export default class DatosChartScreen extends React.PureComponent {
    }
   }
 
+  navegaLess() {
+    if (this.state.value > 0) {
+      this.setState({value: this.state.value - 1})
+    }
+  }
+
+  navegaMore() {
+    if (this.state.value < this.datos.length-1) {
+      this.setState({value: this.state.value + 1})
+    }
+  }
+
   render() {
     if (this.state.usuario != null) {
       return (
@@ -200,6 +212,20 @@ export default class DatosChartScreen extends React.PureComponent {
                       this.setState({value})
                     }
                   }} />
+                  <View style={styles.containerButtons}>
+                    <Button
+                    leftIcon={{name: 'chevron-left'}}
+                    title=''
+                    buttonStyle={styles.styleButtons}
+                    onPress={() => this.navegaLess()}
+                    />
+                    <Button
+                    rightIcon={{name: 'chevron-right'}}
+                    title=''
+                    buttonStyle={styles.styleButtons}
+                    onPress={() => this.navegaMore()}
+                    />
+                  </View>
             </Card>
         </ScrollView>
         <AdsComponent
@@ -223,4 +249,23 @@ export default class DatosChartScreen extends React.PureComponent {
     }
 
   }
+}
+
+const styles = {
+  containerButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  styleButtons: {
+    backgroundColor: "#0099ff",
+    flex: 1,
+    borderColor: "transparent",
+    borderWidth: 0,
+    borderRadius: 5,
+    marginTop: 25,
+    marginBottom: 25
+  }
+
 }
