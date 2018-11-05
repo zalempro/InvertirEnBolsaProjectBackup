@@ -88,11 +88,11 @@ export default class NewTemaScreen extends React.Component {
     this.setState({ errors });
 
     if (!blnError) {
-      enviarNewTema(this.entradaUrl,
-                     this.state.titulo_reply,
-                     this.state.message_reply,
-                     this.state.usuario,
-                     this.state.password
+      enviarNewTema(this.state.usuario,
+                    this.state.password,
+                    this.entradaUrl,
+                    this.state.titulo_reply,
+                    this.state.message_reply
                    )
       .then((resultTema) => {
         this.setState({

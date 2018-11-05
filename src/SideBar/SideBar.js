@@ -37,7 +37,8 @@ export default class SideBar extends React.Component {
         ["Perfil","Perfil"],
         ["NotificacionesScreen","Notificaciones"],
         ["Subscripcion","Suscripción"],
-        ["NoPubliScreen", "Eliminar Publicidad - GRATIS"]
+        ["NoPubliScreen", "Eliminar Publicidad - GRATIS"],
+        ["ContactoScreen", "Contacto"]
       ];
     }  else {
       var routes = [
@@ -47,7 +48,8 @@ export default class SideBar extends React.Component {
         ["Empresas","Empresas"],
         ["NotificacionesScreen","Notificaciones"],
         ["Perfil","Perfil"],
-        ["NoPubliScreen", "Eliminar Publicidad - GRATIS"]
+        ["NoPubliScreen", "Eliminar Publicidad - GRATIS"],
+        ["ContactoScreen", "Contacto"]
       ];
     }
 

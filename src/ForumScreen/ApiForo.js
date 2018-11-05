@@ -164,8 +164,75 @@ export async function getEntradasForo(
 }
 
 
-export async function enviarNewReply(strUrl, strTitulo,
-                                     strMessage, strUsuario, strPassword) {
+export async function enviarReport(strUsuario, strPassword, report, posttitle, strMessage) {
+   blnError = false;
+
+   //console.log("report:", report)
+   //console.log("posttitle:", posttitle)
+   //console.log("strMessage:", strMessage)
+
+
+   if ((report != null) &&
+       (posttitle != null) && (strUsuario != null) && (strPassword != null) && (strMessage != null)) {
+
+         let url = urlbase + "controller.php";
+
+         let result = await fetch(url,{method: 'POST',
+             headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                  },
+             body: JSON.stringify({
+                    action: "REPORT_FORUM",
+                    report: encodeURIComponent(report),
+                    posttitle: posttitle,
+                    message: strMessage,
+                    user: strUsuario,
+                    pwd: strPassword
+                  })
+         }).then(response => response.json())
+         .catch((err) => { console.log(err); });
+         return result.newReply
+
+   } else {
+     blnError = true;
+     return null;
+   }
+
+}
+
+export async function enviarContacto(strMessage) {
+   blnError = false;
+
+   //console.log("report:", report)
+   //console.log("posttitle:", posttitle)
+   //console.log("strMessage:", strMessage)
+
+
+   if (strMessage != null) {
+
+         let url = urlbase + "controller.php";
+
+         let result = await fetch(url,{method: 'POST',
+             headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                  },
+             body: JSON.stringify({
+                    action: "ENVIAR_CONTACTO",
+                    message: strMessage
+                  })
+         }).then(response => response.json())
+         .catch((err) => { console.log(err); });
+         return result.newReply
+
+   } else {
+     blnError = true;
+     return null;
+   }
+}
+
+export async function enviarNewReply(strUsuario, strPassword, strUrl, strMessage, strTitulo) {
     blnError = false;
 
     if ((strUrl != null) &&
@@ -198,9 +265,7 @@ export async function enviarNewReply(strUrl, strTitulo,
 }
 
 
-
-export async function enviarNewTema(strUrl, strTitulo,
-                                     strMessage, strUsuario, strPassword) {
+export async function enviarNewTema(strUsuario, strPassword, strUrl, strTitulo, strMessage) {
     blnError = false;
 
     if ((strUrl != null) && (strTitulo != null) &&

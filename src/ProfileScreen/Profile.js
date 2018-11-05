@@ -13,9 +13,7 @@ import AdsComponent from '../Ads/AdsComponent.js';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-
 import Chatkit from "@pusher/chatkit";
-
 
 
 export default class Profile extends React.Component {

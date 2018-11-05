@@ -5,6 +5,7 @@ import EntradaScreen from "./EntradaScreen.js";
 import NewReplyScreen from "./NewReplyScreen.js";
 import NewTemaScreen from "./NewTemaScreen.js";
 import ImageScreen from "./ImageScreen.js";
+import ReportScreen from "./ReportScreen.js";
 
 import { createStackNavigator } from "react-navigation";
 
@@ -13,6 +14,7 @@ export default (DrawNav = createStackNavigator({
   TemaScreen:     { screen: TemaScreen },
   EntradaScreen:  { screen: EntradaScreen },
   NewReplyScreen: { screen: NewReplyScreen },
-  NewTemaScreen: { screen: NewTemaScreen },
-  ImageScreen: { screen: ImageScreen }
+  NewTemaScreen:  { screen: NewTemaScreen },
+  ImageScreen:    { screen: ImageScreen },
+  ReportScreen:   { screen: ReportScreen }
 }));

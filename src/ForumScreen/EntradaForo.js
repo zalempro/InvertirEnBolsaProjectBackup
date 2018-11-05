@@ -138,7 +138,8 @@ export default class EntradaForo extends React.PureComponent {
       userPostAvatar,
       userDateAlta,
       userMensajes,
-      postContent
+      postContent,
+      report
     } = this.props.entradaForo.item;
 
     const { noteStyle, featuredTitleStyle, featuredSubtitleStyle } = styles;
@@ -229,7 +230,17 @@ export default class EntradaForo extends React.PureComponent {
                         }}
                 />
               </View>
-
+              <Divider style={styles.divider}/>
+              <Button
+                onPress={() => { nav.navigate("ReportScreen",
+                  {
+                    posttitle: numPost,
+                    report: report,
+                   }) }}
+                title="Denunciar mensaje"
+                backgroundColor="#FFFFFF"
+                color="blue"
+              />
             </Card>
           </TouchableHighlight>
           {this.renderNoPubliButton(index)}

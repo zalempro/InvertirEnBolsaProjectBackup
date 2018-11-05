@@ -5,14 +5,14 @@ import { Button, Icon } from "native-base";
 import { Button as ButtonEle} from "react-native-elements";
 import { TextField } from 'react-native-material-textfield';
 import stylesGen from '../Style/styleApp.js';
-import {enviarNewReply} from './ApiForo.js';
+import {enviarReport} from './ApiForo.js';
 import DropdownAlert from 'react-native-dropdownalert';
 import Utils from '../Utils/Utils.js';
 import Analytics from '../Utils/Analytics.js';
 
-export default class NewReplyScreen extends React.Component {
+export default class ReportScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: "Nueva Respuesta",
+    title: "Reportar Mensaje",
     headerRight: (
       <Button
         transparent
@@ -29,16 +29,15 @@ export default class NewReplyScreen extends React.Component {
     //this.message_reply = this.updateRef.bind(this, 'message_reply');
 
 
-    this.entradaUrl = this.props.navigation.getParam('entradaUrl', '');
-    this.titleEntrada = this.props.navigation.getParam('titleEntrada', '');
+    this.report = this.props.navigation.getParam('report', '');
+    this.posttitle = this.props.navigation.getParam('posttitle', '');
 
     this.util = new Utils();
 
     this.analytics = new Analytics();
-    this.analytics.trackScreenView("NewReplyScreen");
+    this.analytics.trackScreenView("ReportScreen");
 
     this.state = {
-      titulo_reply: '',
       message_reply: '',
       newReply: null
     };
@@ -54,28 +53,16 @@ export default class NewReplyScreen extends React.Component {
     util.getKey("AuthIEB","password", this);
   }
 
-  saveRespuesta() {
-    //let { usuario, password } = this.state;
-    //this.onSuccess("Respuesta enviada");
+  saveReportRespuesta() {
 
     let errors = {};
     let blnError = false;
 
-
-    if (this.state.titulo_reply == "") {
-      //errors['titulo_reply'] = 'No puede estar vacío';
-      //blnError = true;
-    } else {
-      if (this.state.titulo_reply.length > 80) {
-        errors['titulo_reply'] = 'Título demasiado grande';
-        blnError = true;
-      }
-    }
     if (this.state.message_reply == "") {
       errors['message_reply'] = 'No puede estar vacío';
       blnError = true;
     } else {
-      if (this.state.message_reply.length > 2000) {
+      if (this.state.message_reply.length > 1000) {
         blnError = true;
         errors['message_reply'] = 'Respuesta demasiado grande';
       }
@@ -88,12 +75,12 @@ export default class NewReplyScreen extends React.Component {
     this.setState({ errors });
 
     if (!blnError) {
-      enviarNewReply(this.state.usuario,
-                     this.state.password,
-                     this.entradaUrl,
-                     this.state.message_reply,
-                     this.state.titulo_reply
-                   )
+      enviarReport(this.state.usuario,
+                   this.state.password,
+                   this.report,
+                   this.posttitle,
+                   this.state.message_reply
+                 )
       .then((resultReply) => {
         this.setState({
           newReply:resultReply,
@@ -106,7 +93,7 @@ export default class NewReplyScreen extends React.Component {
              (this.state.newReply.resultNewReply != 1)) {
              blnError = true;
           } else {
-            this.onSuccess("Respuesta enviada");
+            this.onSuccess("Informe reportado");
           }
         } else {
           blnError = true;
@@ -123,38 +110,24 @@ export default class NewReplyScreen extends React.Component {
   //Funciones par mostrar alert
   onError = error => {
     if (error) {
-      this.analytics.trackEvent("NewReplyScreen", "New Reply KO");
+      this.analytics.trackEvent("ReportScreen", "New Report KO");
       this.dropdown.alertWithType('error', 'Error', error);
     }
   };
   onSuccess = success => {
     if (success) {
-      this.analytics.trackEvent("NewReplyScreen", "New Reply OK");
+      this.analytics.trackEvent("ReportScreen", "New Report OK");
       this.dropdown.alertWithType('success', 'OK', success);
     }
   };
   onClose(data) {
-    // data = {type, title, message, action}
-    // action means how the alert was closed.
-    // returns: automatic, programmatic, tap, pan or cancel
     if (data.type == "success") {
-      //this.props.navigation.goBack();
-      //this.props.navigation.navigate("ForumScreen");
-      const refreshFunction = this.props.navigation.state.params.refreshFunction;
-      if(typeof refreshFunction === 'function')
-      {
-        refreshFunction();
-        this.props.navigation.goBack();
-      } else {
-        this.props.navigation.goBack();
-      }
+       this.props.navigation.goBack();
     }
   }
 
-
   render() {
-
-    let { titulo_reply, message_reply, errors = {} } = this.state;
+    let { message_reply, errors = {} } = this.state;
 
     return (
       <KeyboardAvoidingView
@@ -178,22 +151,14 @@ export default class NewReplyScreen extends React.Component {
           }}>
         </Image>
         <View style={styles.loginZone}>
-          <Text style={styles.loginTitle}>{this.titleEntrada}</Text>
+          <Text style={styles.loginTitle}>Reportar entrada</Text>
         </View>
         <TextField
-        //ref={this.titulo_reply}
-        label='Título'
-        value={titulo_reply}
-        characterRestriction={80}
-        onChangeText={ (titulo_reply) => this.setState({ titulo_reply }) }
-        error={errors.titulo_reply}
-        />
-        <TextField
         //ref={this.message_reply}
-        label='Respuesta'
+        label='Informe'
         value={message_reply}
         multiline={true}
-        characterRestriction={2000}
+        characterRestriction={1000}
 
         autoCapitalize='none'
         autoCorrect={false}
@@ -216,13 +181,12 @@ export default class NewReplyScreen extends React.Component {
           marginTop: 50,
           marginBottom: 25
         }}
-        onPress={() => this.saveRespuesta()}
+        onPress={() => this.saveReportRespuesta()}
         />
         <View style={{ height: 80 }} />
         <DropdownAlert
           ref={ref => this.dropdown = ref}
           onClose={data => this.onClose(data)} />
-
         </ScrollView>
       </KeyboardAvoidingView>
     );
