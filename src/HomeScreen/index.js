@@ -10,11 +10,13 @@ import SideBar from "../SideBar/SideBar.js";
 import SubscriptionScreen from "../SubscriptionScreen/index.js";
 import NotificacionesScreen from "../NotificacionesScreen/index.js";
 import ContactoScreen from "../ContactoScreen/index.js";
+import SubscripcionForoScreen from "../SubscripcionForoScreen/index.js";
 
 import { createDrawerNavigator } from "react-navigation";
 const HomeScreenRouter = createDrawerNavigator(
   {
     Home:     { screen: HomeScreen },
+    SubscripcionForo: { screen: SubscripcionForoScreen },
     Noticias: { screen: NewsScreen },
     Foro:     { screen: ForumScreen },
     Empresas: { screen: EmpresasBDScreen },

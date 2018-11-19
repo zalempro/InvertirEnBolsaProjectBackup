@@ -100,4 +100,7 @@ export default StyleSheet.create({
     marginTop: 25,
     marginBottom: 25
   },
+  ActivityIndicator3: {
+    marginLeft: 10,
+  },
 });

@@ -20,8 +20,12 @@ import OneSignal from 'react-native-onesignal';
 import styles from '../Style/styleApp.js';
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+
+    return {
     title: "Posts nuevos",
+    headerLeft: state.params && state.params.DActivity,
     headerRight: (
       <View>
         <Button
@@ -30,8 +34,8 @@ export default class HomeScreen extends React.Component {
           <Icon name="menu" />
         </Button>
       </View>
-    )
-  });
+    )}
+  };
 
   constructor(props) {
     super(props);
@@ -45,6 +49,8 @@ export default class HomeScreen extends React.Component {
       searchURL: '',
       appState: AppState.currentState
     };
+    this.props.navigation.setParams({ DActivity: null});
+
 
     this.util = new Utils();
 
@@ -52,6 +58,7 @@ export default class HomeScreen extends React.Component {
     this.analytics.trackScreenView("UltimosPosts");
 
     this.fetchTemasForo = this.fetchTemasForo.bind(this);
+
   }
 
   // Called after a component is mounted
@@ -67,7 +74,7 @@ export default class HomeScreen extends React.Component {
     const infoResult = this.util.getSubscriptionInfo(this);
     const valRes = await infoResult;
 
-    !this.isCancelled && this.setState({ loading: false });
+    //!this.isCancelled && this.setState({ loading: false });
 
     if (this.state.usuario != null) {
         this.fetchTemasForo(true);
@@ -80,7 +87,7 @@ export default class HomeScreen extends React.Component {
         });
 
         this.ads = new AdsIntersticial(this.state.subs_active, 3, this);
-      } else {
+    } else {
       this.setState({ loading: false });
       this.onError("Introduce la información de login");
       this.props.navigation.navigate("Profile");
@@ -94,6 +101,16 @@ export default class HomeScreen extends React.Component {
       AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
+  componentDidUpdate(nextProps, prevState) {
+    if ((prevState.loading !== this.state.loading) || (prevState.refreshing !== this.state.refreshing)) { // redux props from language picker
+      if ((!this.state.loading) || (this.state.loading && this.state.refreshing)) {
+        this.props.navigation.setParams({ DActivity: null});
+      } else {
+        this.props.navigation.setParams({ DActivity:  <ActivityIndicator style={styles.ActivityIndicator3} animating />});
+      }
+    }
+  }
+
   _handleAppStateChange = (nextAppState) => {
     if (this.state.appState.match(/background/) && nextAppState === 'active') {
       this.handleRefresh();
@@ -103,8 +120,8 @@ export default class HomeScreen extends React.Component {
 
 
   fetchTemasForo(blnReset) {
-    if (!this.state.loading) {
-      !this.isCancelled && this.setState({ loading: true });
+    if (this.state.loading) {
+      //!this.isCancelled && this.setState({ loading: true });
 
       this.analytics.trackEvent("UltimosPosts", "Carga Temas");
 
@@ -144,7 +161,8 @@ export default class HomeScreen extends React.Component {
     !this.isCancelled && this.setState(
       {
         refreshing: true,
-        paginaActual: 1
+        paginaActual: 1,
+        loading: true
       },
        () => {
          this.fetchTemasForo(true);
@@ -176,6 +194,10 @@ export default class HomeScreen extends React.Component {
          temasForo: arrTemp,
          refreshing: false
        });
+     } else {
+       !this.isCancelled && this.setState({
+         refreshing: false
+       });
      }
      this.ads.showIntersticialAd();
    };
@@ -184,20 +206,22 @@ export default class HomeScreen extends React.Component {
     if (Number(this.state.paginaActual) < Number(this.state.paginasTot)) {
     !this.isCancelled && this.setState(
         {
-          paginaActual : Number(this.state.paginaActual) + 1
+          paginaActual : Number(this.state.paginaActual) + 1,
+          loading: true
         }, () => {
           this.fetchTemasForo(false);
         });
     }
   };
 
-  renderHeader =() => {
+  /*renderHeader =() => {
     if ((!this.state.loading) || (this.state.loading && this.state.refreshing)) return null;
 
+    //this.props.navigation.setParams({ DActivity: <ActivityIndicator style={styles.ActivityIndicator2} animating /> });
     return (
       <ActivityIndicator style={styles.ActivityIndicator2} animating size="large" />
     );
-  }
+  }*/
 
   //Funciones par mostrar alert
   onError = error => {
@@ -232,7 +256,6 @@ export default class HomeScreen extends React.Component {
             <StatusBar
              barStyle="dark-content"
            />
-            {this.renderHeader()}
 
             <FlatList
               removeClippedSubviews
@@ -252,7 +275,7 @@ export default class HomeScreen extends React.Component {
               onEndReached={this.handleLoadMore.bind(this)}
               initialNumToRender={10}
               maxToRenderPerBatch={5}
-              onEndReachedThreshold={0.5}
+              onEndReachedThreshold={0.6}
               extraData={this.state.subs_active}
             />
             <AdsComponent
@@ -264,7 +287,7 @@ export default class HomeScreen extends React.Component {
     } else {
       return (
         <Container style={styles.generalContainer}>
-          {this.renderHeader()}
+
           <AdsComponent
             subscription={this.state.subs_active}
             typeAd={"banner"}

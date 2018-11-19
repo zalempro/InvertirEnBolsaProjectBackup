@@ -808,6 +808,21 @@
             ]
         },
         {
+            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-hy-rAM_values-hy-rAM.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-hy-rAM/values-hy-rAM.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,139,207,279,349,421,504,578,656,730,800",
+                        "endColumns": "83,67,71,69,71,82,73,77,73,69,70",
+                        "endOffsets": "134,202,274,344,416,499,573,651,725,795,866"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-el_values-el.arsc.flat",
             "map": [
                 {
@@ -978,21 +993,6 @@
                         "startOffsets": "8491,8570,8709,8778,8848,8942,9070",
                         "endColumns": "78,138,68,69,93,127,82",
                         "endOffsets": "8565,8704,8773,8843,8937,9065,9148"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-hy-rAM_values-hy-rAM.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-hy-rAM/values-hy-rAM.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,139,207,279,349,421,504,578,656,730,800",
-                        "endColumns": "83,67,71,69,71,82,73,77,73,69,70",
-                        "endOffsets": "134,202,274,344,416,499,573,651,725,795,866"
                     }
                 }
             ]
@@ -1336,21 +1336,6 @@
             ]
         },
         {
-            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-mn-rMN_values-mn-rMN.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-mn-rMN/values-mn-rMN.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,141,216,289,359,434,515,602,682,758,827",
-                        "endColumns": "85,74,72,69,74,80,86,79,75,68,67",
-                        "endOffsets": "136,211,284,354,429,510,597,677,753,822,890"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-bn-rBD_values-bn-rBD.arsc.flat",
             "map": [
                 {
@@ -1361,6 +1346,21 @@
                         "startOffsets": "55,139,215,286,356,439,530,624,713,787,857",
                         "endColumns": "83,75,70,69,82,90,93,88,73,69,65",
                         "endOffsets": "134,210,281,351,434,525,619,708,782,852,918"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-mn-rMN_values-mn-rMN.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-mn-rMN/values-mn-rMN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,141,216,289,359,434,515,602,682,758,827",
+                        "endColumns": "85,74,72,69,74,80,86,79,75,68,67",
+                        "endOffsets": "136,211,284,354,429,510,597,677,753,822,890"
                     }
                 }
             ]
@@ -1962,21 +1962,6 @@
             ]
         },
         {
-            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-ka-rGE_values-ka-rGE.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-ka-rGE/values-ka-rGE.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,136,213,280,347,425,507,591,672,749,827",
-                        "endColumns": "80,76,66,66,77,81,83,80,76,77,68",
-                        "endOffsets": "131,208,275,342,420,502,586,667,744,822,891"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-kn-rIN_values-kn-rIN.arsc.flat",
             "map": [
                 {
@@ -1987,6 +1972,21 @@
                         "startOffsets": "55,139,215,288,358,438,527,619,706,781,851",
                         "endColumns": "83,75,72,69,79,88,91,86,74,69,68",
                         "endOffsets": "134,210,283,353,433,522,614,701,776,846,915"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/manulinx/Documents/DevApps/ReactNativeApps/InvertirEnBolsaProjectBackup/android/app/build/intermediates/res/merged/prodMinSdkProdKernel/release/values-ka-rGE_values-ka-rGE.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/manulinx/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/972ded2b21f202c7a7484e6480f961a2/res/values-ka-rGE/values-ka-rGE.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,136,213,280,347,425,507,591,672,749,827",
+                        "endColumns": "80,76,66,66,77,81,83,80,76,77,68",
+                        "endOffsets": "131,208,275,342,420,502,586,667,744,822,891"
                     }
                 }
             ]

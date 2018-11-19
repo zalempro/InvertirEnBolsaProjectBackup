@@ -1,6 +1,7 @@
 import React from "react";
 import { AppRegistry, Image, StatusBar, View, Dimensions, Platform } from "react-native";
 import { Container, Content, Text, List, ListItem } from "native-base";
+import FullWidthImage from 'react-native-fullwidth-image';
 //import { StackActions, NavigationActions } from 'react-navigation';
 
 
@@ -31,18 +32,20 @@ export default class SideBar extends React.Component {
     if ((process.env.NODE_ENV === 'development') || (Platform.OS==="ios")) {
       var routes = [
         ["Home","Posts nuevos"],
+        ["SubscripcionForo","Suscripciones Foro"],
         ["Noticias","Noticias"],
         ["Foro","Foro"],
         ["Empresas","Empresas"],
         ["Perfil","Perfil"],
         ["NotificacionesScreen","Notificaciones"],
-        ["Subscripcion","Suscripción"],
+        ["Subscripcion","Suscripción App"],
         ["NoPubliScreen", "Eliminar Publicidad - GRATIS"],
         ["ContactoScreen", "Contacto"]
       ];
     }  else {
       var routes = [
         ["Home","Posts nuevos"],
+        ["SubscripcionForo","Suscripciones Foro"],
         ["Noticias","Noticias"],
         ["Foro","Foro"],
         ["Empresas","Empresas"],
@@ -60,8 +63,11 @@ export default class SideBar extends React.Component {
     return (
       <Container>
         <Content>
-            <Image
-              style={{width: imgWidth, height: imgHeight, marginTop: 50}}
+
+            <FullWidthImage
+              style={{marginTop: 50}}
+              width={imgWidth}
+              height={imgHeight}
               source={logoImg}
             />
           <List

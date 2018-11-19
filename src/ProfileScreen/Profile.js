@@ -264,7 +264,7 @@ export default class Profile extends React.Component {
           marginTop: 0,
           marginBottom: 25
         }}
-        onPress={() => Linking.openURL('https://www.invertirenbolsa.info/foro-inversiones/register.php') }
+        onPress={() => this.props.navigation.navigate("RegisterScreen") }
         />
         <AdsComponent
           subscription={this.state.subs_active}

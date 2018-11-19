@@ -279,6 +279,26 @@ export default class EntradaScreen extends React.Component {
     });
   }
 
+  renderMensajeNoHayPostsNuevos(blnOnlyPendingView, blnCargaInicial) {
+    blnIsNew = false;
+    if (this.state.entradasForo.post != null) {
+      this.state.entradasForo.post.map((post) => {
+          if (post.isNew) {
+            blnIsNew = true;
+          }
+      });
+
+      if (!blnIsNew && blnOnlyPendingView && blnCargaInicial) {
+        return(
+          <View style={styles2.JustText} >
+            <Text>No hay entradas nuevas.</Text>
+            <Text>Arrastra para ver las antiguas.</Text>
+          </View>
+        );
+      }
+    }
+  }
+
   render() {
 
     let nav = this.props.navigation;
@@ -290,6 +310,7 @@ export default class EntradaScreen extends React.Component {
         <Container style={styles.generalContainer} >
             {this.renderReplyButton()}
             {this.renderHeader()}
+            {this.renderMensajeNoHayPostsNuevos(this.blnOnlyPendingView, this.state.blnCargaInicial)}
             <FlatList
               removeClippedSubviews
               disableVirtualization
@@ -351,5 +372,11 @@ const styles2 = {
   },
   CheckBoxText: {
     marginLeft: 20
+  },
+  JustText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 20
+
   }
 };

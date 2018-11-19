@@ -4,7 +4,7 @@
     "icon": "./logo_ieb_icon.png",
     "sdkVersion": "29.0.0",
     "description": "Aplicación de la comunidad Invertir en Bolsa",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "slug": "iebapp",
     "updates": {
       "enabled": true
@@ -27,7 +27,7 @@
         "WAKE_LOCK",
         "com.android.vending.BILLING"
       ],
-      "versionCode": 26,
+      "versionCode": 27,
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },

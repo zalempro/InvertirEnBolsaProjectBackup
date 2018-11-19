@@ -15,21 +15,15 @@ export default class TemaForo extends React.PureComponent {
       this.util = new Utils();
   }
 
-  renderStars(calificacion) {
-    if (this.props.showStars) {
-      /*return (
+  renderNew(newPost) {
+    if (newPost == 1) {
+      return (
         <View style={styles.temas}>
-          <StarRatingBar
-              score={calificacion}
-              dontShowScore={true} // true: not show the score text view
-              allowsHalfStars={false}
-              accurateHalfStars={false}
-          />
+          <Text style={styles.temasBold}>[Nuevos]</Text>
         </View>
-      );*/
-      return null;
+      );
     } else {
-      return null;
+      return (null);
     }
   }
 
@@ -56,6 +50,24 @@ export default class TemaForo extends React.PureComponent {
     }
   }
 
+
+  renderRespuestasVisitas(strRespuestas, strVisitas) {
+    if ((strRespuestas != 0) || (strVisitas != 0)) {
+      return (
+        <React.Fragment>
+          <Divider style={styles.divider}/>
+          <View style={styles.stadistic}>
+            <Text style={styles.temas}>Respuestas: {strRespuestas}</Text>
+            <Text style={styles.mensajes}>Visitas: {strVisitas}</Text>
+          </View>
+        </React.Fragment>
+      );
+    } else {
+      return null
+    }
+  }
+
+
   render() {
     //console.log(this.props)
     const index = this.props.temaForo.index;
@@ -77,7 +89,8 @@ export default class TemaForo extends React.PureComponent {
       calificacion,
       lastUserPost,
       lastUserPostUrl,
-      lastPostDate
+      lastPostDate,
+      newPost
     } = this.props.temaForo.item;
     const { noteStyle, featuredTitleStyle, featuredSubtitleStyle } = styles;
 
@@ -125,16 +138,12 @@ export default class TemaForo extends React.PureComponent {
               <Text style={styles.title}>{strAdherido}{this.util.decodeData(this.util.decodeData(title))}</Text>
               <Divider style={styles.divider}/>
               <View style={styles.stadistic}>
-                {this.renderStars(calificacion)}
                 <Text style={styles.mensajes}>Creador: {this.util.decodeData(this.util.decodeData(createUser))}</Text>
+                {this.renderNew(newPost)}
               </View>
               <Divider style={styles.divider}/>
               <Text>Últ. mensaje: {lastPostDate} por '{this.util.decodeData(this.util.decodeData(lastUserPost))}'</Text>
-              <Divider style={styles.divider}/>
-              <View style={styles.stadistic}>
-                <Text style={styles.temas}>Respuestas: {respuestas}</Text>
-                <Text style={styles.mensajes}>Visitas: {visitas}</Text>
-              </View>
+              {this.renderRespuestasVisitas(respuestas, visitas)}
             </Card>
           </TouchableHighlight>
           {this.renderNoPubliButton(index)}
@@ -176,6 +185,9 @@ const styles = {
   },
   temas: {
     //textAlign : 'Left'
+  },
+  temasBold: {
+    fontWeight: 'bold'
   },
   mensajes: {
     alignItems: 'flex-end',

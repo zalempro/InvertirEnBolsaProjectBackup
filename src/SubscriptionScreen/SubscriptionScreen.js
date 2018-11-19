@@ -439,6 +439,22 @@ export default class SubscriptionScreen extends React.Component {
     var returnValue = [];
 
     returnValue.push(
+      <Text style={styles.textLegalAdvice}>El pago se cargará a la cuenta de iTunes en la confirmación de la compra</Text>
+    );
+    returnValue.push(
+      <Text style={styles.textLegalAdvice}>La suscripción se renueva automáticamente a menos que la renovación automática se desactive al menos 24 horas antes del final del período actual</Text>
+    );
+    returnValue.push(
+      <Text style={styles.textLegalAdvice}>Se cobrará por la renovación dentro de las 24 horas previas al final del período actual, e identificará el costo de la renovación</Text>
+    );
+    returnValue.push(
+      <Text style={styles.textLegalAdvice}>Las suscripciones pueden ser administradas por el usuario y la renovación automática puede desactivarse yendo a la Configuración de la cuenta del usuario después de la compra</Text>
+    );
+    returnValue.push(
+      <Text style={styles.textLegalAdvice}>Cualquier porción no utilizada de un período de prueba gratuito, si se ofrece, se perderá cuando el usuario compre una suscripción a esa publicación, cuando corresponda</Text>
+    );
+
+    returnValue.push(
       <ButtonEle
         key="butPolitica"
         onPress={ ()=>{ Linking.openURL('http://invertirenbolsa.manuelrispolez.com/politicaPrivacidad.html');}}
@@ -598,8 +614,13 @@ const styles = {
     textAlign: 'center'
   },
   subAdvice: {
-      marginTop: 10,
-      marginBottom: 0
+      marginTop: 15,
+      marginBottom: 10
   },
+  textLegalAdvice: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 20
+  }
 
 }
