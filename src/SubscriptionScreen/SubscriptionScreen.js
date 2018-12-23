@@ -102,7 +102,7 @@ export default class SubscriptionScreen extends React.Component {
             'receipt-data': transactionReceipt,
             'password': '321e3f340375461ca94588b7647c8c75'
           };
-          let result = await RNIap.validateReceiptIos(receiptBody, true, 54);
+          let result = await RNIap.validateReceiptIos(receiptBody, false, 54);
 
           if (result) {
             this.setState({ latest_receipt_info: result.latest_receipt_info });

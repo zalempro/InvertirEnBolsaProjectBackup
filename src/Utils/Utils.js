@@ -107,8 +107,11 @@ export default class Utils {
         const getKey2 = this.getKey("SubscriptionIEB","subs_active", objThis);
         const val2 = await getKey2;
 
-        //const saveKey = this.saveKey("SubscriptionIEB", "subs_active","1");
-        //const val4 = await saveKey;
+        const saveKey = this.saveKey("SubscriptionIEB", "subs_active","1");
+        const val4 = await saveKey;
+
+        const getKey3 = this.getKey("SubscriptionIEB","subs_active", objThis);
+        const val5 = await getKey3;
 
         console.log("getSubscriptionInfo: Suscripción Activa");
       } else {
