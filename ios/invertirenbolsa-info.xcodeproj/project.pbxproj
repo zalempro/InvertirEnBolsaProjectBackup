@@ -25,7 +25,6 @@
 		5FE75A2A52774E32AB8AAE45 /* HelveticaNeueMed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 701295F5E321437383F4968A /* HelveticaNeueMed.ttf */; };
 		6055964FE5DB4FE98B960928 /* foroIndex_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 339BA5E706D943EBA30875C5 /* foroIndex_9.jpg */; };
 		68FD418B275A40408FB910DC /* empresa_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFBFBA4F68B14174A72D3A98 /* empresa_1_1.jpg */; };
-		692839F021787807007D9C03 /* logo_ieb.png in Resources */ = {isa = PBXBuildFile; fileRef = 692839EF21787807007D9C03 /* logo_ieb.png */; };
 		69F33366216219A100359226 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F33365216219A100359226 /* StoreKit.framework */; };
 		6AE2E0FF0EA1487E9FC992A9 /* logo_ieb_bck.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4A742886294E24AFCCEB31 /* logo_ieb_bck.png */; };
 		7E3AEADEB15341F28DEEA514 /* foroIndex_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DC629A6E0E145CF8E330565 /* foroIndex_4.jpg */; };
@@ -366,7 +365,6 @@
 				7E3AEADEB15341F28DEEA514 /* foroIndex_4.jpg in Resources */,
 				F9396D444EE64C1EBD53EDE2 /* foroIndex_5.jpg in Resources */,
 				1DE515B1DBBD4986BE963853 /* foroIndex_6.jpg in Resources */,
-				692839F021787807007D9C03 /* logo_ieb.png in Resources */,
 				1B93637B008B4374B715D095 /* foroIndex_7.jpg in Resources */,
 				0EA127124FED46ECBC5AD9EB /* foroIndex_8.jpg in Resources */,
 				6055964FE5DB4FE98B960928 /* foroIndex_9.jpg in Resources */,

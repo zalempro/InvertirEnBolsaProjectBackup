@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Linking, TouchableHighlight } from 'react-native';
 import { Button, Card, Divider } from 'react-native-elements';
+import { ListItem} from "react-native-elements";
 import moment from 'moment';
 
 import StarRatingBar from 'react-native-star-rating-view/StarRatingBar';
@@ -17,18 +18,19 @@ export default class TemaForo extends React.PureComponent {
 
   renderNew(newPost) {
     if (newPost == 1) {
-      return (
+      return({name:'bookmark'});
+      /*return (
         <View style={styles.temas}>
           <Text style={styles.temasBold}>[Nuevos]</Text>
         </View>
-      );
+      );*/
     } else {
       return (null);
     }
   }
 
   renderNoPubliButton(eleIndex) {
-    if ((this.props.subs_active != "1") && (eleIndex % 2 == 0 )) {
+    if ((this.props.subs_active != "1") && (eleIndex % 10 == 0 )) {
       return (
         <Button
           leftIcon={{name: 'subscriptions'}}
@@ -39,8 +41,8 @@ export default class TemaForo extends React.PureComponent {
             borderColor: "transparent",
             borderWidth: 0,
             borderRadius: 5,
-            marginTop: 25,
-            marginBottom: 10
+            marginTop: 5,
+            marginBottom: 5
           }}
             onPress={() => { nav.navigate("NoPubliScreen") }}
           />
@@ -112,7 +114,7 @@ export default class TemaForo extends React.PureComponent {
       return(null);
     }
 
-      return (
+    /*  return (
         <React.Fragment>
 
           <TouchableHighlight
@@ -146,6 +148,39 @@ export default class TemaForo extends React.PureComponent {
               {this.renderRespuestasVisitas(respuestas, visitas)}
             </Card>
           </TouchableHighlight>
+
+          {this.renderNoPubliButton(index)}
+        </React.Fragment>
+      ); */
+
+      return (
+        <React.Fragment>
+          <ListItem
+            switchButton
+
+            //leftIcon={{name:'bookmark'}}
+            leftIcon={this.renderNew(newPost)}
+
+            titleNumberOfLines={3}
+            title={strAdherido+" "+this.util.decodeData(this.util.decodeData(title))+" - "+this.util.decodeData(this.util.decodeData(createUser))}
+            titleStyle={styles.title}
+
+            subtitle={lastPostDate+" por "+this.util.decodeData(this.util.decodeData(lastUserPost)) }
+
+            onPress={() => {
+                nav.navigate("EntradaScreen",{
+                  entradaUrl: link,
+                  paginasTema: paginasTema,
+                  titleTema: this.util.decodeData(this.util.decodeData(title)),
+                  refreshFunction: this.props.onBackRefresh,
+                  indexTema: title + '-' + lastPostDate,
+                  blnOnlyPendingView: this.props.blnOnlyPendingView
+                }
+              )
+                this.props.adsIntersticial.showIntersticialAd();
+              }
+            }
+          />
           {this.renderNoPubliButton(index)}
         </React.Fragment>
       );

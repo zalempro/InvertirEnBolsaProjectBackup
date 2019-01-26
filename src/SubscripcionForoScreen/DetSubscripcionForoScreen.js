@@ -75,7 +75,7 @@ export default class DetSubscripcionForoScreen extends React.Component {
     if (this.state.usuario != null) {
         this.fetchSubscriptionForo();
 
-        this.ads = new AdsIntersticial(this.state.subs_active, 3, this);
+        this.ads = new AdsIntersticial(this.state.subs_active, 5, this);
       } else {
       this.setState({ loading: false });
       this.onError("Introduce la información de login");

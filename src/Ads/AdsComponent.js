@@ -60,6 +60,7 @@ export default class AdsComponent extends React.Component {
       } else {
           strBannerSize = this.props.bannerSize;
       }
+
       return(
         <AdMobBanner
           style={styles.bottomBanner}

@@ -86,7 +86,7 @@ export default class HomeScreen extends React.Component {
             );
         });
 
-        this.ads = new AdsIntersticial(this.state.subs_active, 3, this);
+        this.ads = new AdsIntersticial(this.state.subs_active, 5, this);
     } else {
       this.setState({ loading: false });
       this.onError("Introduce la información de login");
@@ -277,10 +277,6 @@ export default class HomeScreen extends React.Component {
               maxToRenderPerBatch={5}
               onEndReachedThreshold={0.6}
               extraData={this.state.subs_active}
-            />
-            <AdsComponent
-              subscription={this.state.subs_active}
-              typeAd={"banner"}
             />
         </Container>
       );

@@ -71,7 +71,7 @@ export default class TemaScreen extends React.Component {
     //if (this.state.subs_active == "1") {
       if (this.state.usuario != null) {
           //console.log("Llamando")
-          this.ads = new AdsIntersticial(this.state.subs_active, 6, this);
+          this.ads = new AdsIntersticial(this.state.subs_active, 5, this);
           this.fetchTemasForo();
         } else {
         this.setState({ loading: false });

@@ -57,10 +57,13 @@ public class AppConstants {
         
         
         
+        
+        
+        
         // ADD EMBEDDED RESPONSES HERE
         // START EMBEDDED RESPONSES
         embeddedResponses.add(new Constants.EmbeddedResponse("https://exp.host/@manulinx/iebapp/index.exp", "assets://shell-app-manifest.json", "application/json"));
-        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40manulinx%2Fiebapp%2F0.9.4%2Fc34e8958d2a7591fe84817cda3010c51-29.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
+        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40manulinx%2Fiebapp%2F0.9.4%2Fa92e334fe3f2e2a33593dba4b2e7bd35-29.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
         // END EMBEDDED RESPONSES
     EMBEDDED_RESPONSES = embeddedResponses;
   }

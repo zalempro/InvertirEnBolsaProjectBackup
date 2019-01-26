@@ -93,7 +93,7 @@ export default class EntradaScreen extends React.Component {
       this.loading = false;
 
       if (this.state.usuario != null) {
-          this.ads = new AdsIntersticial(this.state.subs_active, 4, this);
+          this.ads = new AdsIntersticial(this.state.subs_active, 5, this);
           this.fetchEntradasForo("initLoad");
       } else {
         this.loading = false;
@@ -331,11 +331,6 @@ export default class EntradaScreen extends React.Component {
               onEndReachedThreshold={0.5}
               //extraData={this.state.subs_active}
               extraData={this.state}
-
-            />
-            <AdsComponent
-              subscription={this.state.subs_active}
-              typeAd={"banner"}
             />
         </Container>
       );
